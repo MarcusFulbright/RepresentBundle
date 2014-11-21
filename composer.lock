@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f5bf28fac35560dbdb2e597d32df056",
+    "hash": "1966234336e3c8d476267bd9ca40f21a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -900,6 +900,55 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "represent/represent",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarcusFulbright/represent.git",
+                "reference": "5a98e41a2e638b7a053efc670149772977ebb1ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/5a98e41a2e638b7a053efc670149772977ebb1ba",
+                "reference": "5a98e41a2e638b7a053efc670149772977ebb1ba",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "2.4.*",
+                "php": ">=5.3.9",
+                "symfony/expression-language": "~2.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "symfony/routing": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Represent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Fulbright",
+                    "email": "fulbright.marcus@gmail.com"
+                }
+            ],
+            "description": "Tools that can build differient representations of objects",
+            "homepage": "http://github.com/MarcusFulbright/represent",
+            "keywords": [
+                "api",
+                "hypermedia",
+                "representor",
+                "rest"
+            ],
+            "time": "2014-11-21 21:23:10"
+        },
+        {
             "name": "sensio/distribution-bundle",
             "version": "v3.0.9",
             "target-dir": "Sensio/Bundle/DistributionBundle",
@@ -1559,7 +1608,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "represent/represent": 20
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
