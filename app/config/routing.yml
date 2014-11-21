@@ -1,0 +1,4 @@
+marcus_fulbright_represent:
+    resource: "@MarcusFulbrightRepresentBundle/Controller/"
+    type:     annotation
+    prefix:   /
