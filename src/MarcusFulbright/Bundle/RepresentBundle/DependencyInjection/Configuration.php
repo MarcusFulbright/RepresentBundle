@@ -2,6 +2,7 @@
 
 namespace MarcusFulbright\Bundle\RepresentBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -18,12 +19,54 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('marcus_fulbright_represent');
+        $rootNode = $treeBuilder->root('marcus_fulbright_represent', 'array');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $this->addViewSection($rootNode);
+//        $this->addFormatListenerSection($rootNode);
 
         return $treeBuilder;
+    }
+
+    private function addViewSection(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('mime_types')
+                    ->useAttributeAsKey('name')
+                    ->prototype('variable')->end()
+                ->end()
+            ->end();
+    }
+
+    private function addFormatListenerSection(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('format_listener')
+                    ->fixXmlConfig('rule', 'rules')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->arrayNode('rules')
+                            ->cannotBeOverwritten()
+                            ->prototype('array')
+                                ->fixXmlConfig('priority', 'priorities')
+                                ->children()
+                                    ->scalarNode('path')->defaultNull()->info('URL path info')->end()
+                                    ->scalarNode('host')->defaultNull()->info('URL host name')->end()
+                                    ->variableNode('methods')->defaultNull()->info('Method for URL')->end()
+                                    ->booleanNode('stop')->defaultFalse()->end()
+                                    ->booleanNode('prefer_extension')->defaultTrue()->end()
+                                    ->scalarNode('fallback_format')->defaultValue('html')->end()
+                                    ->arrayNode('priorities')
+                                        ->beforeNormalization()->ifString()->then(function ($v) { return preg_split('/\s*,\s*/', $v); })->end()
+                                        ->prototype('scalar')->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }

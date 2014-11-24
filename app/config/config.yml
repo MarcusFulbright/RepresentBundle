@@ -2,6 +2,9 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+marcus_fulbright_represent:
+    mime_types: { 'json' : [ 'application/json' ] }
+
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }

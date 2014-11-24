@@ -20,9 +20,20 @@ class MarcusFulbrightRepresentExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $config        = $this->processConfiguration($configuration, $configs);
+        $loader        = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('format_negotiator.xml');
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        if (!empty($config['mime_types'])) {
+            $loader->load('mime_type_listener.xml');
+            $container->setParameter($this->getAlias().'.mime_types', $config['mime_types']);
+        } else {
+            $container->setparameter($this->getAlias().'.mime_types', array());
+        }
+
+        if (!empty($config['format_listener']['rules'])) {
+            $loader->load('format_listener.xml');
+            $container->setParameter($this->getAlias().'.format_listener.rules', $config['format_listener']['rules']);
+        }
     }
 }

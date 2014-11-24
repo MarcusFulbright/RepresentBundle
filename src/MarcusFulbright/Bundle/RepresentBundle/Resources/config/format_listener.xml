@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="represent.format_listener.class">MarcusFulbright\Bundle\RepresentBundle\EventListener\FormatListener</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="represent.format_listener" class="%represent.format_listener.class%">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="34" />
+            <argument type="service" id="represent.format_negotiator" />
+        </service>
+
+    </services>
+</container>
