@@ -905,12 +905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcusFulbright/represent.git",
-                "reference": "5a98e41a2e638b7a053efc670149772977ebb1ba"
+                "reference": "4964c2e03441f8dc4087781dac94d7fabf0e7bea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/5a98e41a2e638b7a053efc670149772977ebb1ba",
-                "reference": "5a98e41a2e638b7a053efc670149772977ebb1ba",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/4964c2e03441f8dc4087781dac94d7fabf0e7bea",
+                "reference": "4964c2e03441f8dc4087781dac94d7fabf0e7bea",
                 "shasum": ""
             },
             "require": {
@@ -946,7 +946,7 @@
                 "representor",
                 "rest"
             ],
-            "time": "2014-11-21 21:23:10"
+            "time": "2014-11-25 23:33:29"
         },
         {
             "name": "sensio/distribution-bundle",

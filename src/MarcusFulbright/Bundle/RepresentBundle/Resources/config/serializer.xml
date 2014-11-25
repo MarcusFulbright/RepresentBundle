@@ -11,6 +11,7 @@
         <parameter key="represent.generic_serializer.class">Represent\Serializer\GenericSerializer</parameter>
         <parameter key="represent.hal_serializer.class">Represent\Serializer\HalSerializer</parameter>
         <parameter key="expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+        <parameter key="represent.serializer.class">Represent\Serializer\MasterSerializer</parameter>
     </parameters>
 
     <services>
@@ -47,6 +48,11 @@
         <service id="represent.hal_serializer" class="%represent.hal_serializer.class%">
             <argument type="service" id="represent.hal_builder"/>
             <argument type="service" id="represent.property_context_builder"/>
+        </service>
+
+        <service id="represent.serializer" class="%represent.serializer.class%">
+            <argument type="service" id="represent.generic_serializer"/>
+            <argument type="service" id="represent.hal_serializer"/>
         </service>
 
     </services>

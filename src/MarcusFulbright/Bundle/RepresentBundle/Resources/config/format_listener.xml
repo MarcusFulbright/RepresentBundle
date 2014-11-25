@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="represent.format_listener.class">MarcusFulbright\Bundle\RepresentBundle\EventListener\FormatListener</parameter>
+        <parameter key="represent.request_matcher.class">Symfony\Component\HttpFoundation\RequestMatcher</parameter>
     </parameters>
 
     <services>
@@ -14,6 +15,8 @@
             <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="34" />
             <argument type="service" id="represent.format_negotiator" />
         </service>
+
+        <service id="represent.request_matcher" class="%represent.request_matcher.class%" public="false"/>
 
     </services>
 </container>

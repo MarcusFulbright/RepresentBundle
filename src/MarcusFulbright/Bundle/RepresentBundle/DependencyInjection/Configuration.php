@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('marcus_fulbright_represent', 'array');
 
         $this->addViewSection($rootNode);
-//        $this->addFormatListenerSection($rootNode);
+        $this->addFormatListenerSection($rootNode);
 
         return $treeBuilder;
     }
