@@ -1,18 +1,16 @@
 <?xml version="1.0" ?>
-
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
     <parameters>
         <parameter key="represent.generic_representation_builder.class">Represent\Builder\GenericRepresentationBuilder</parameter>
         <parameter key="represent.class_context_builder.class">Represent\Builder\ClassContextBuilder</parameter>
         <parameter key="represent.property_context_builder.class">Represent\Builder\PropertyContextBuilder</parameter>
         <parameter key="represent.hal_representation_builder.class">Represent\Builder\Format\HalFormatBuilder</parameter>
         <parameter key="represent.link_generator.class">Represent\Builder\Generator\LinkGenerate</parameter>
-        <parameter key="represent.generic_serializer.class">Represent\Serializer\GenericSerializer<parameter/>
+        <parameter key="represent.generic_serializer.class">Represent\Serializer\GenericSerializer</parameter>
         <parameter key="represent.hal_serializer.class">Represent\Serializer\HalSerializer</parameter>
-        <parameter key="expression_langauge.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+        <parameter key="expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
     </parameters>
 
     <services>
@@ -26,30 +24,29 @@
         </service>
 
         <service id="represent.generic_representation_builder" class="%represent.generic_representation_builder.class%">
-            <argument>%represent.property_context_builder%</argument>
-            <argument>%represent.class_context_builder%</argument>
+            <argument type="service" id="represent.property_context_builder"/>
+            <argument type="service" id="represent.class_context_builder"/>
         </service>
 
         <service id="represent.generic_serializer" class="%represent.generic_serializer.class%">
-            <argument>%represent.generic_representation_builder%</argument>
+            <argument type="service" id="represent.generic_representation_builder"/>
         </service>
 
+        <service id="expression_language" class="%expression_language.class%"/>
 
-        <service id="expression_language" class="expression_language.class"/>
-
-        <service id="represent.link_generator" class="represent.link_generator.class">
+        <service id="represent.link_generator" class="%represent.link_generator.class%">
             <argument type="service" id="router"/>
-            <argument>%expression_language%</argument>
+            <argument type="service" id="expression_language"/>
         </service>
 
         <service id="represent.hal_builder" class="%represent.hal_serializer.class%">
-            <argument type="service" id="annotaitons.reader"/>
-            <argument>%represent.link_generator%</argument>
+            <argument type="service" id="annotations.reader"/>
+            <argument type="service" id="represent.link_generator"/>
         </service>
 
         <service id="represent.hal_serializer" class="%represent.hal_serializer.class%">
-            <argument>%represent.hal_builder%</argument>
-            <argument>%represent.property_context_builder%</argument>
+            <argument type="service" id="represent.hal_builder"/>
+            <argument type="service" id="represent.property_context_builder"/>
         </service>
 
     </services>

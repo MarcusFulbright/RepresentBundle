@@ -23,6 +23,7 @@ class MarcusFulbrightRepresentExtension extends Extension
         $config        = $this->processConfiguration($configuration, $configs);
         $loader        = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('format_negotiator.xml');
+        $loader->load('serializer.xml');
 
         if (!empty($config['mime_types'])) {
             $loader->load('mime_type_listener.xml');
