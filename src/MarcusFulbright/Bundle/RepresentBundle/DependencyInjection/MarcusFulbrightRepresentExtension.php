@@ -25,6 +25,8 @@ class MarcusFulbrightRepresentExtension extends Extension
         $loader->load('format_negotiator.xml');
         $loader->load('serializer.xml');
 
+        $container->setParameter($this->getAlias().'.format_map', $config['format_map']);
+
         if (!empty($config['mime_types'])) {
             $loader->load('mime_type_listener.xml');
             $container->setParameter($this->getAlias().'.mime_types', $config['mime_types']);

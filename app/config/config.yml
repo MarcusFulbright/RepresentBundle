@@ -4,6 +4,13 @@ imports:
 
 marcus_fulbright_represent:
     mime_types: { 'json' : [ 'application/json' ] }
+    format_listener:
+        rules:
+            # setting fallback_format to json means that instead of considering the next rule in case of a priority mismatch, json will be used
+            - { path: '^/', host: 'api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
+    format_map:
+        json: represent.generic_serializer
+        hal+json: represent.hal_serializer
 
 framework:
     #esi:             ~

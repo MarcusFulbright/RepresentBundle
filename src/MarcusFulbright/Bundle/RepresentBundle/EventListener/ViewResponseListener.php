@@ -34,7 +34,11 @@ class ViewResponseListener
             throw new \Exception('Format: '.$format.' Not supported');
         }
 
-        $this->container->get('represent.serializer')->serialize($view->getData(), $view->getFormat());
+        $serializer = $this->container->get('represent.serializer');
+
+        if ($serializer->supports($view->getFormat())) {
+            $this->container->get('represent.serializer')->serialize($view->getData(), $view->getFormat(), $view->getContext());
+        }
 
         $response =  new Response($view->getData(), $view->getStatusCode(), $view->getHeaders());
         $response->headers->set('Content-Type', $view->getFormat());

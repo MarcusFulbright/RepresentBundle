@@ -51,8 +51,7 @@
         </service>
 
         <service id="represent.serializer" class="%represent.serializer.class%">
-            <argument type="service" id="represent.generic_serializer"/>
-            <argument type="service" id="represent.hal_serializer"/>
+            <argument>%marcus_fulbright_represent.format_map%</argument>
         </service>
 
     </services>

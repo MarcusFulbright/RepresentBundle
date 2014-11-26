@@ -35,6 +35,10 @@ class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('name')
                     ->prototype('variable')->end()
                 ->end()
+                ->arrayNode('format_map')
+                    ->useAttributeaskey('name')
+                    ->prototype('variable')
+                ->end()
             ->end();
     }
 
