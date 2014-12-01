@@ -1,6 +1,6 @@
 <?php
 
-namespace MarcusFulbright\RepresentBundle\EventListener;
+namespace MarcusFulbright\Bundle\RepresentBundle\EventListener;
 
 use MarcusFulbright\Bundle\RepresentBundle\EventListener\StopFormatListenerException;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
