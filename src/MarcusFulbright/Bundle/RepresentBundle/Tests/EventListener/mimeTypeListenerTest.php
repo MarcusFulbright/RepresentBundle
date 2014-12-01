@@ -2,11 +2,11 @@
 
 namespace MarcusFulbright\RepresentBundle\Tests\EventListener;
 
-use MarcusFulbright\RepresentBundle\EventListener\MimeTypeListener;
+use MarcusFulbright\Bundle\RepresentBundle\EventListener\MimeTypeListener;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class mimeTypeListenerTest
+class mimeTypeListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testOnKernelRequest()
     {
