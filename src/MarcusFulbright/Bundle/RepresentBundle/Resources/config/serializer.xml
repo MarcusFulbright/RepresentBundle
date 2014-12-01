@@ -12,6 +12,8 @@
         <parameter key="represent.hal_serializer.class">Represent\Serializer\HalSerializer</parameter>
         <parameter key="expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
         <parameter key="represent.serializer.class">Represent\Serializer\MasterSerializer</parameter>
+        <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
+        <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
     </parameters>
 
     <services>
@@ -52,6 +54,14 @@
 
         <service id="represent.serializer" class="%represent.serializer.class%">
             <argument>%marcus_fulbright_represent.format_map%</argument>
+        </service>
+
+        <service id="represent.pagination_factory" class="%represent.pagination_factory.class%">
+            <argument type="service" id="represent.link_generator"/>
+        </service>
+
+        <service id="represent.streaming_response_factory" class="%represent.streaming_response_factory.class%">
+            <argument type="service" id="represent.pagination_factory"/>
         </service>
 
     </services>
