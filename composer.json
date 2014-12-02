@@ -2,7 +2,7 @@
     "name": "mbright/bundle/represent-bundle",
     "type": "symfony-bundle",
     "description": "The symfony2 integration for represent",
-    "keywords": [ "rest, hateoas, represent, symfony2" ],
+    "keywords": [ "rest", "hateoas", "represent", "symfony2" ],
     "license": "MIT",
     "authors": [
         {
