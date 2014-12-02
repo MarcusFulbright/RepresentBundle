@@ -15,18 +15,11 @@ class ViewResponseListener
     private $container;
 
     /**
-     * @var array
-     */
-    private $formats;
-
-    /**
      * @param ContainerInterface $container
-     * @param array              $formats
      */
-    public function __construct(ContainerInterface $container, array $formats)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->formats   = $formats;
     }
 
     /**
@@ -45,10 +38,6 @@ class ViewResponseListener
 
         if (!$view instanceof RepresentView) {
            $view = new RepresentView($view);
-        }
-
-        if (!in_array($format, $this->formats)) {
-            throw new \Exception('Format: '.$format.' not supported');
         }
 
         $serializer = $this->container->get('represent.serializer');

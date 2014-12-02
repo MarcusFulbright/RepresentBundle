@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
+        <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="represent.pagination_factory" class="%represent.pagination_factory.class%">
+            <argument type="service" id="represent.link_generator"/>
+        </service>
+
+        <service id="represent.streaming_response_factory" class="%represent.streaming_response_factory.class%">
+            <argument type="service" id="represent.pagination_factory"/>
+        </service>
+
+    </services>
+
+</container>

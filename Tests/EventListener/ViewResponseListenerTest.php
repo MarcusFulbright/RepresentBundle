@@ -8,14 +8,13 @@ class ViewResponseListenerTest extends \PHPUnit_Framework_TestCase
 {
     public function testOnKernelView()
     {
-        $formats    = array('json');
         $view       = $this->getRepresentViewMock();
         $event      = $this->getResponseForControllerResultEventMock();
         $request    = $this->getRequestMock();
         $container  = $this->getContainerInterfaceMock();
         $serializer = $this->getSerializerMock();
         $data       = 'data';
-        $format     = $formats[0];
+        $format     = 'json';
         $context    = null;
         $statusCode = 201;
 
@@ -32,7 +31,7 @@ class ViewResponseListenerTest extends \PHPUnit_Framework_TestCase
         $view->shouldReceive('hasData')->andReturn(true);
         $view->shouldReceive('getHeaders')->andReturn(array());
 
-        $listener = new ViewResponseListener($container, $formats);
+        $listener = new ViewResponseListener($container);
         $result   = $listener->onKernelView($event, false);
 
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $result);
@@ -40,25 +39,6 @@ class ViewResponseListenerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($statusCode, $result->getStatusCode());
         $this->assertEquals($data, $result->getContent());
     }
-
-    public function testOnKernelViewFormatException()
-    {
-        $view       = $this->getRepresentViewMock();
-        $event      = $this->getResponseForControllerResultEventMock();
-        $request    = $this->getRequestMock();
-        $container  = $this->getContainerInterfaceMock();
-        $format     = 'json';
-
-        $event->shouldReceive('getRequest')->andReturn($request);
-        $event->shouldReceive('getControllerResult')->andReturn($view);
-        $request->shouldReceive('getRequestFormat')->andReturn($format);
-
-        $listener = new ViewResponseListener($container, array());
-
-        $this->setExpectedException('Exception', 'Format: '.$format.' not supported');
-        $listener->onKernelView($event, false);
-    }
-
 
     public function getContainerInterfaceMock()
     {
