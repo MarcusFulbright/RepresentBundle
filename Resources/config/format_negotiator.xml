@@ -3,7 +3,7 @@
 <container>
 
     <parameters>
-        <parameter key="represent.format_negotiator.class">Mbright\Bundle\RepresentBundle\EventListener\FormatNegotiator</parameter>
+        <parameter key="represent.format_negotiator.class">Mbright\Bundle\RepresentBundle\Negotiator\FormatNegotiator</parameter>
     </parameters>
 
     <services>
