@@ -1,17 +1,20 @@
 {
-    "name": "MarcusFulbright/RepresentBundle",
-    "license": "MIT",
-    "type": "project",
+    "name": "mbright/bundle/represent-bundle",
+    "type": "symfony-bundle",
     "description": "The symfony2 integration for represent",
-    "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
-    },
+    "keywords": [ "rest, hateoas, represent, symfony2" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name":  "Marcus Fulbright",
+            "email": "fulbright.marcus@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.5.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
-        "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
@@ -25,33 +28,11 @@
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
     },
-    "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
-        "post-install-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ],
-        "post-update-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ]
+    "autoload": {
+        "psr-4": { "Mbright\\Bundle\\RepresentBundle\\": "." }
     },
-    "config": {
-        "bin-dir": "bin"
-    },
+
     "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "branch-alias": {
-            "dev-master": "2.5-dev"
-        }
+        "dev-master": "1.0.x-dev"
     }
 }

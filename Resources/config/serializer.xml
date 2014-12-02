@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<container>
+    <parameters>
+        <parameter key="represent.generic_representation_builder.class">Represent\Builder\GenericRepresentationBuilder</parameter>
+        <parameter key="represent.class_context_builder.class">Represent\Builder\ClassContextBuilder</parameter>
+        <parameter key="represent.property_context_builder.class">Represent\Builder\PropertyContextBuilder</parameter>
+        <parameter key="represent.hal_representation_builder.class">Represent\Builder\Format\HalFormatBuilder</parameter>
+        <parameter key="represent.link_generator.class">Represent\Builder\Generator\LinkGenerate</parameter>
+        <parameter key="represent.generic_serializer.class">Represent\Serializer\GenericSerializer</parameter>
+        <parameter key="represent.hal_serializer.class">Represent\Serializer\HalSerializer</parameter>
+        <parameter key="expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+        <parameter key="represent.serializer.class">Represent\Serializer\MasterSerializer</parameter>
+        <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
+        <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
+    </parameters>
+
+    <services>
+        
+        <service id="represent.class_context_builder" class="%represent.class_context_builder.class%">
+            <argument type="service" id="annotations.reader"/>
+        </service>
+        
+        <service id="represent.property_context_builder" class="%represent.property_context_builder.class%">
+            <argument type="service" id="annotations.reader"/>
+        </service>
+
+        <service id="represent.generic_representation_builder" class="%represent.generic_representation_builder.class%">
+            <argument type="service" id="represent.property_context_builder"/>
+            <argument type="service" id="represent.class_context_builder"/>
+        </service>
+
+        <service id="represent.generic_serializer" class="%represent.generic_serializer.class%">
+            <argument type="service" id="represent.generic_representation_builder"/>
+        </service>
+
+        <service id="expression_language" class="%expression_language.class%"/>
+
+        <service id="represent.link_generator" class="%represent.link_generator.class%">
+            <argument type="service" id="router"/>
+            <argument type="service" id="expression_language"/>
+        </service>
+
+        <service id="represent.hal_builder" class="%represent.hal_serializer.class%">
+            <argument type="service" id="annotations.reader"/>
+            <argument type="service" id="represent.link_generator"/>
+        </service>
+
+        <service id="represent.hal_serializer" class="%represent.hal_serializer.class%">
+            <argument type="service" id="represent.hal_builder"/>
+            <argument type="service" id="represent.property_context_builder"/>
+        </service>
+
+        <service id="represent.serializer" class="%represent.serializer.class%">
+            <argument>%marcus_fulbright_represent.format_map%</argument>
+        </service>
+
+        <service id="represent.pagination_factory" class="%represent.pagination_factory.class%">
+            <argument type="service" id="represent.link_generator"/>
+        </service>
+
+        <service id="represent.streaming_response_factory" class="%represent.streaming_response_factory.class%">
+            <argument type="service" id="represent.pagination_factory"/>
+        </service>
+
+    </services>
+</container>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<container>
+
+    <parameters>
+        <parameter key="represent.format_negotiator.class">Mbright\Bundle\RepresentBundle\EventListener\FormatNegotiator</parameter>
+    </parameters>
+
+    <services>
+        <service id="represent.format_negotiator" class="%represent.format_negotiator.class%" />
+    </services>
+</container>
