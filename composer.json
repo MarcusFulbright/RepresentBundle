@@ -1,5 +1,5 @@
 {
-    "name": "mbright/bundle/represent-bundle",
+    "name": "mbright/represent-bundle",
     "type": "symfony-bundle",
     "description": "The symfony2 integration for represent",
     "keywords": [ "rest", "hateoas", "represent", "symfony2" ],
