@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('marcus_fulbright_represent', 'array');
+        $rootNode = $treeBuilder->root('mbright-represent', 'array');
 
         $this->addViewSection($rootNode);
         $this->addFormatListenerSection($rootNode);
