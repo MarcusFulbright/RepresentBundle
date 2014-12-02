@@ -12,21 +12,12 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.*",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
-        "symfony/assetic-bundle": "~2.3",
-        "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0",
+        "symfony/framework-bundle": "~2.2",
         "represent/represent": "dev-master",
-        "willdurand/negotiation": "~1.2",
-        "mockery/mockery": "~0.9"
+        "willdurand/negotiation": "~1.2"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "mockery/mockery": "~0.9"
     },
     "autoload": {
         "psr-4": { "Mbright\\Bundle\\RepresentBundle\\": "." }
