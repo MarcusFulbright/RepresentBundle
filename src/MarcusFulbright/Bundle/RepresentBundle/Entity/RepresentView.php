@@ -12,13 +12,14 @@ class RepresentView
 
     protected $context;
 
-    protected $headers = array();
+    protected $headers;
 
-    public function __construct($data = null, $context = null, $statusCode = null)
+    public function __construct($data = null, $context = null, $statusCode = null, $headers = array())
     {
         $this->statusCode = $this->parseStatusCode($data, $statusCode);
         $this->data       = $data;
         $this->context    = $context;
+        $this->headers    = $headers;
     }
 
     private function parseStatusCode($data, $statusCode)
@@ -32,6 +33,11 @@ class RepresentView
         }
 
         return 200;
+    }
+
+    public function hasData()
+    {
+        return $this->data != null;
     }
 
     /**
