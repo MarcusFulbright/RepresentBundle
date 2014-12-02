@@ -11,7 +11,7 @@ class FormatListenerRulesPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('marcus_fulbright_represent.format_listener')) {
+        if (!$container->hasDefinition('represent.format_listener')) {
             return;
         }
 
@@ -33,7 +33,7 @@ class FormatListenerRulesPass implements CompilerPassInterface
             $this->addRule($profilerRule, $container);
         }
 
-        $rules = $container->getParameter('marcus_fulbright_represent.format_listener.rules');
+        $rules = $container->getParameter('mbright_represent.format_listener.rules');
         foreach ($rules as $rule) {
             $this->addRule($rule, $container);
         }
