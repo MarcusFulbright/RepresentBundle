@@ -15,11 +15,18 @@ class ViewResponseListener
     private $container;
 
     /**
-     * @param ContainerInterface $container
+     * @var string
      */
-    public function __construct(ContainerInterface $container)
+    private $defautFormat;
+
+    /**
+     * @param ContainerInterface $container
+     * @param string             $defaultFormat
+     */
+    public function __construct(ContainerInterface $container, $defaultFormat = 'json')
     {
-        $this->container = $container;
+        $this->container    = $container;
+        $this->defautFormat = $defaultFormat;
     }
 
     /**
@@ -38,6 +45,10 @@ class ViewResponseListener
 
         if (!$view instanceof RepresentView) {
            $view = new RepresentView($view);
+        }
+
+        if ($view->getFormat() == null) {
+            $view->setFormat($this->defautFormat);
         }
 
         $serializer = $this->container->get('represent.serializer');

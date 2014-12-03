@@ -20,6 +20,10 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mbright-represent', 'array');
+        $rootNode
+            ->children()
+                ->scalarNode('defaultFormat')->end()
+            ->end();
 
         $this->addViewSection($rootNode);
         $this->addFormatListenerSection($rootNode);

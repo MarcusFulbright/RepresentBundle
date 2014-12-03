@@ -7,11 +7,14 @@
     <parameters>
         <parameter key="represent.link_generator.class">Represent\Generator\LinkGenerator</parameter>
         <parameter key="expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+        <parameter key="annotation_reader.class">Doctrine\Common\Annotations\AnnotationReader</parameter>
     </parameters>
 
     <services>
 
         <service id="expression_language" class="%expression_language.class%"/>
+
+        <service id="annotation_reader" class="%annotation_reader.class%"/>
 
         <service id="represent.link_generator" class="%represent.link_generator.class%">
             <argument type="service" id="router"/>
