@@ -39,6 +39,8 @@ class ViewResponseListener
      */
     public function onKernelView(GetResponseForControllerResultEvent $event, $prepare = true)
     {
+        die('made it');
+
         $request = $event->getRequest();
         $format  = $request->getRequestFormat();
         $view    = $event->getControllerResult();
@@ -54,7 +56,7 @@ class ViewResponseListener
         $serializer = $this->container->get('represent.serializer');
 
         if ($serializer->supports($format) && $view->hasData()) {
-            $serializer->serialize($view->getData(), $view->getFormat(), $view->getContext());
+            $view->setData($serializer->serialize($view->getData(), $view->getFormat(), $view->getContext()));
         }
 
         $response =  new Response($view->getData(), $view->getStatusCode(), $view->getHeaders());
@@ -62,6 +64,6 @@ class ViewResponseListener
 
         !$prepare ?: $response->prepare($request);
 
-        return $response;
+        $event->setResponse($response);
     }
 }

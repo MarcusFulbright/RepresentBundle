@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "92c9392167d52d6475598a0d4e9ee958",
+    "hash": "152655c8450196ea30813b1085139d4d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -516,12 +516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcusFulbright/represent.git",
-                "reference": "a7a0036432c8b52d92bdd35436e2670700356152"
+                "reference": "3adbc99dc7aca506418452bb479d11499dd9ef8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/a7a0036432c8b52d92bdd35436e2670700356152",
-                "reference": "a7a0036432c8b52d92bdd35436e2670700356152",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/3adbc99dc7aca506418452bb479d11499dd9ef8b",
+                "reference": "3adbc99dc7aca506418452bb479d11499dd9ef8b",
                 "shasum": ""
             },
             "require": {
@@ -559,7 +559,7 @@
                 "representor",
                 "rest"
             ],
-            "time": "2014-12-01 22:57:45"
+            "time": "2014-12-03 22:52:38"
         },
         {
             "name": "symfony/symfony",
