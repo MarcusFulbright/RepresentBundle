@@ -20,10 +20,6 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mbright-represent', 'array');
-        $rootNode
-            ->children()
-                ->scalarNode('defaultFormat')->end()
-            ->end();
 
         $this->addViewSection($rootNode);
         $this->addFormatListenerSection($rootNode);
@@ -35,6 +31,9 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
+                ->scalarNode('defaultFormat')
+                    ->defaultValue('json')
+                ->end()
                 ->arrayNode('mime_types')
                     ->useAttributeAsKey('name')
                     ->prototype('variable')->end()
