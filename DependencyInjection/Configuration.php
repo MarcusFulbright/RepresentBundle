@@ -31,9 +31,6 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
-                ->scalarNode('default_format')
-                    ->defaultValue('json')
-                ->end()
                 ->arrayNode('mime_types')
                     ->useAttributeAsKey('name')
                     ->prototype('variable')->end()
