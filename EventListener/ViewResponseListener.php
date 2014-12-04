@@ -15,6 +15,11 @@ class ViewResponseListener
     private $container;
 
     /**
+     * @var array
+     */
+    private $formatMap;
+
+    /**
      * @var string
      */
     private $defautFormat;
@@ -23,7 +28,7 @@ class ViewResponseListener
      * @param ContainerInterface $container
      * @param string             $defaultFormat
      */
-    public function __construct(ContainerInterface $container, $defaultFormat = 'json')
+    public function __construct(ContainerInterface $container, $formatMap, $defaultFormat = 'json')
     {
         $this->container    = $container;
         $this->defautFormat = $defaultFormat;
@@ -39,8 +44,6 @@ class ViewResponseListener
      */
     public function onKernelView(GetResponseForControllerResultEvent $event, $prepare = true)
     {
-        die('made it');
-
         $request = $event->getRequest();
         $format  = $request->getRequestFormat();
         $view    = $event->getControllerResult();
@@ -53,7 +56,7 @@ class ViewResponseListener
             $view->setFormat($this->defautFormat);
         }
 
-        $serializer = $this->container->get('represent.serializer');
+        $serializer = $this->container->get($this->formatMap[$format]);
 
         if ($serializer->supports($format) && $view->hasData()) {
             $view->setData($serializer->serialize($view->getData(), $view->getFormat(), $view->getContext()));
