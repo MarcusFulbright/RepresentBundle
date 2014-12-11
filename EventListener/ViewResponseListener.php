@@ -54,7 +54,7 @@ class ViewResponseListener
         }
 
         if ($view->getFormat() == null) {
-            $view->setFormat($this->defautFormat);
+            $view->setFormat($format);
         }
 
         $serializer = $this->container->get($this->formatMap[$format]);
