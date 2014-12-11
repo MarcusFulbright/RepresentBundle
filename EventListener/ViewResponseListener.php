@@ -32,6 +32,7 @@ class ViewResponseListener
     {
         $this->container    = $container;
         $this->defautFormat = $defaultFormat;
+        $this->formatMap    = $formatMap;
     }
 
     /**
