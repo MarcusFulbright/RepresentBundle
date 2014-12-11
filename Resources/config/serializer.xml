@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="represent.generic_representation_builder.class">Represent\Builder\GenericRepresentationBuilder</parameter>
+        <parameter key="represent.generic_representation_builder.class">Represent\Builder\DoctrineGenericBuilder</parameter>
         <parameter key="represent.class_context_builder.class">Represent\Builder\ClassContextBuilder</parameter>
         <parameter key="represent.property_context_builder.class">Represent\Builder\PropertyContextBuilder</parameter>
         <parameter key="represent.hal_builder.class">Represent\Builder\Format\HalFormatBuilder</parameter>

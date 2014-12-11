@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "152655c8450196ea30813b1085139d4d",
+    "hash": "98f63aab7a3289a5671bdd1e2d256ad4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -516,22 +516,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcusFulbright/represent.git",
-                "reference": "3adbc99dc7aca506418452bb479d11499dd9ef8b"
+                "reference": "98c98a024746f9e6c007de33718bf00ebeba7d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/3adbc99dc7aca506418452bb479d11499dd9ef8b",
-                "reference": "3adbc99dc7aca506418452bb479d11499dd9ef8b",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/98c98a024746f9e6c007de33718bf00ebeba7d37",
+                "reference": "98c98a024746f9e6c007de33718bf00ebeba7d37",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "2.4.*",
+                "doctrine/common": ">=2.4.0",
                 "pagerfanta/pagerfanta": "~1.0",
                 "php": ">=5.3.9",
                 "symfony/expression-language": "~2.4",
-                "symfony/http-foundation": "2.5.7"
+                "symfony/http-foundation": ">=2.5.7"
             },
             "require-dev": {
+                "doctrine/orm": ">=2.2.3,<2.4-dev",
                 "mockery/mockery": "~0.9",
                 "symfony/routing": "~2.0"
             },
@@ -559,7 +560,7 @@
                 "representor",
                 "rest"
             ],
-            "time": "2014-12-03 22:52:38"
+            "time": "2014-12-11 16:33:08"
         },
         {
             "name": "symfony/symfony",
