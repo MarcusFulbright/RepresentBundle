@@ -42,16 +42,5 @@ class MbrightRepresentExtension extends Extension
             $container->setParameter($this->getAlias().'.format_listener.rules', $config['format_listener']['rules']);
         }
 
-        if (!empty($config['body_listener'])) {
-            $loader->load('body_listener.xml');
-            $container->setParameter($this->getAlias().'.throw_exception_on_unsupported_content_type', $config['body_listener']['throw_exception_on_unsupported_content_type']);
-            $container->setParameter($this->getAlias().'.body_default_format', $config['body_listener']['default_format']);
-            $container->setParameter($this->getAlias().'.decoders', $config['body_listener']['decoders']);
-            $arrayNormalizer = $config['body_listener']['array_normalizer'];
-            if (null !== $arrayNormalizer) {
-                $container->getDefinition($this->getAlias().'.body_listener')
-                    ->addMethodCall('setArrayNormalizer', array(new Reference($arrayNormalizer)));
-            }
-        }
     }
 }

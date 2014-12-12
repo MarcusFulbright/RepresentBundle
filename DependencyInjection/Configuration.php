@@ -23,7 +23,6 @@ class Configuration implements ConfigurationInterface
 
         $this->addViewSection($rootNode);
         $this->addFormatListenerSection($rootNode);
-        $this->addBodyListenerSection($rootNode);
 
         return $treeBuilder;
     }
@@ -70,30 +69,6 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                         ->end()
-                    ->end()
-                ->end()
-            ->end();
-    }
-
-    private function addBodyListenerSection(ArrayNodeDefinition $rootNode)
-    {
-        $rootNode
-            ->children()
-                ->arrayNode('body_listener')
-                    ->fixXmlConfig('decoder', 'decoders')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
-                    ->children()
-                        ->scalarNode('default_format')->defaultNull()->end()
-                        ->booleanNode('throw_exception_on_unsupported_content_type')
-                            ->defaultFalse()
-                        ->end()
-                        ->arrayNode('decoders')
-                            ->useAttributeAsKey('name')
-                            ->defaultValue(array('json' => 'represent.decoder.json', 'xml' => 'represent.decoder.xml'))
-                            ->prototype('scalar')->end()
-                        ->end()
-                        ->scalarNode('array_normalizer')->defaultNull()->end()
                     ->end()
                 ->end()
             ->end();
