@@ -26,6 +26,7 @@ class ViewResponseListener
 
     /**
      * @param ContainerInterface $container
+     * @param                    $formatMap
      * @param string             $defaultFormat
      */
     public function __construct(ContainerInterface $container, $formatMap, $defaultFormat = 'json')
