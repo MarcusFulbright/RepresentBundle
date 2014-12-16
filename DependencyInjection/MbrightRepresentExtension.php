@@ -27,6 +27,7 @@ class MbrightRepresentExtension extends Extension
         $loader->load('serializer.xml');
         $loader->load('response.xml');
         $loader->load('view_response_listener.xml');
+        $loader->load('de_serializer.xml');
 
         $container->setParameter($this->getAlias().'.format_map', $config['format_map']);
 
