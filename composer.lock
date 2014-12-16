@@ -516,12 +516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcusFulbright/represent.git",
-                "reference": "98c98a024746f9e6c007de33718bf00ebeba7d37"
+                "reference": "05b6465f8e11a79ac82976984c76906ac7242673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/98c98a024746f9e6c007de33718bf00ebeba7d37",
-                "reference": "98c98a024746f9e6c007de33718bf00ebeba7d37",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/05b6465f8e11a79ac82976984c76906ac7242673",
+                "reference": "05b6465f8e11a79ac82976984c76906ac7242673",
                 "shasum": ""
             },
             "require": {
@@ -560,7 +560,7 @@
                 "representor",
                 "rest"
             ],
-            "time": "2014-12-11 16:33:08"
+            "time": "2014-12-16 21:12:17"
         },
         {
             "name": "symfony/symfony",
