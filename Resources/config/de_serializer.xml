@@ -7,6 +7,7 @@
     <parameters>
         <parameter key="represent.doctrine_deserializer.class">Represent\Serializer\DoctrineDeserializer</parameter>
         <parameter key="represent.generic_instantiator.class">Represent\Instantiator\GenericInstantiator</parameter>
+        <parameter key="represent.param_converter.class">Mbright\Bundle\RepresentBundle\Converter\RepresentParamConverter</parameter>
     </parameters>
 
     <services>
@@ -21,7 +22,7 @@
 
         <service id="represent.param_converter" class="%represent.param_converter.class%">
             <argument type="service" id="represent.doctrine_deserializer" />
-            <tag name="represent.converter" priority="-100"/>
+            <tag name="request.param_converter" converter="represent_body_converter"/>
         </service>
     </services>
 

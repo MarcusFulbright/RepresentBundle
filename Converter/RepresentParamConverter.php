@@ -2,9 +2,9 @@
 
 namespace Mbright\Bundle\RepresentBundle\Converter;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Represent\Serializer\DoctrineDeserializer;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class RepresentParamConverter implements ParamConverterInterface
@@ -16,21 +16,21 @@ class RepresentParamConverter implements ParamConverterInterface
         $this->serializer = $serializer;
     }
 
-    public function supports(ConfigurationInterface $config)
+    public function supports(ParamConverter $configuration)
     {
-        if (!$config->getClass()) {
+        if (!$configuration->getClass()) {
             return false;
         }
 
         return true;
     }
 
-    public function apply(Request $request, ConfigurationInterface $config)
+    public function apply (Request $request, ParamConverter $configuration)
     {
         $data   = $request->getContent();
-        $format = $request->getContentType();
-        $class  = $config->getClass();
+        $format = $request->getFormat($request->headers->get('content-type'));
+        $class  = $configuration->getClass();
 
-        $request->attributes->set($config->getName(), $this->serializer->deSerialize($data, $class, $format));
+        $request->attributes->set($configuration->getName(), $this->serializer->deSerialize($data, $class, $format));
     }
 }
