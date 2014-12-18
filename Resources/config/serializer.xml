@@ -14,12 +14,16 @@
         <parameter key="represent.serializer.class">Represent\Serializer\MasterSerializer</parameter>
         <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
         <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
+        <parameter key="represent.property_handler.class">Represent\Handler\PropertyHandler</parameter>
     </parameters>
 
     <services>
+        <service id="represent.property_handler" class="%represent.property_handler.class%" >
+            <argument type="service" id="annotation_reader" />
+        </service>
 
         <service id="represent.class_context_builder" class="%represent.class_context_builder.class%">
-            <argument type="service" id="annotation_reader"/>
+            <argument type="service" id="represent.property_handler"/>
         </service>
 
         <service id="represent.property_context_builder" class="%represent.property_context_builder.class%">

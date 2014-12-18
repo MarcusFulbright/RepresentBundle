@@ -17,6 +17,7 @@
         <service id="represent.doctrine_deserializer" class="%represent.doctrine_deserializer.class%">
             <argument>null</argument>
             <argument type="service" id="represent.generic_instantiator" />
+            <argument type="service" id="represent.property_handler" />
             <argument type="service" id="doctrine.orm.entity_manager"/>
         </service>
 
