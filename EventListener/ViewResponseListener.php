@@ -22,7 +22,7 @@ class ViewResponseListener
     /**
      * @var string
      */
-    private $defautFormat;
+    private $defaultFormat;
 
     /**
      * @param ContainerInterface $container
@@ -32,7 +32,7 @@ class ViewResponseListener
     public function __construct(ContainerInterface $container, $formatMap, $defaultFormat = 'json')
     {
         $this->container    = $container;
-        $this->defautFormat = $defaultFormat;
+        $this->defaultFormat = $defaultFormat;
         $this->formatMap    = $formatMap;
     }
 
