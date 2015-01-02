@@ -53,7 +53,7 @@
         </service>
 
         <service id="represent.hal_serializer" class="%represent.serializer.class%">
-            <argument type="service" id="represent.generic_representation_builder"/>
+            <argument type="service" id="represent.hal_builder"/>
             <argument type="collection">
                 <argument key="hal+json">toJson</argument>
             </argument>
