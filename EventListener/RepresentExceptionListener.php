@@ -16,7 +16,7 @@ class RepresentExceptionListener
         if ($exception instanceof HttpExceptionInterface && $exception instanceof \RuntimeException) {
 
             $message = sprintf(
-                'Code: %s Message: %s',
+                '{"code": %s,"message":"%s"}',
                 $exception->getStatusCode(),
                 $exception->getMessage()
             );
@@ -28,7 +28,7 @@ class RepresentExceptionListener
             };
 
         } else {
-            $message = 'Code: 500 Message: The server has encountered an error';
+            $message = '{"code":500,"message":"The server has encountered an error"}';
             $code    = 500;
         }
 
