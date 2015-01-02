@@ -8,7 +8,7 @@
         <parameter key="represent.generic_representation_builder.class">Represent\Builder\DoctrineGenericBuilder</parameter>
         <parameter key="represent.class_context_builder.class">Represent\Builder\ClassContextBuilder</parameter>
         <parameter key="represent.property_context_builder.class">Represent\Builder\PropertyContextBuilder</parameter>
-        <parameter key="represent.hal_builder.class">Represent\Builder\Format\DoctrineHalFormatBuilder</parameter>
+        <parameter key="represent.hal_builder.class">Represent\Builder\Format\DoctrineHalBuilder</parameter>
         <parameter key="represent.serializer.class">Represent\Serializer\RepresentSerializer</parameter>
         <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
         <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
@@ -21,11 +21,11 @@
         </service>
 
         <service id="represent.class_context_builder" class="%represent.class_context_builder.class%">
-            <argument type="service" id="represent.property_handler"/>
+            <argument type="service" id="annotation_reader"/>
         </service>
 
         <service id="represent.property_context_builder" class="%represent.property_context_builder.class%">
-            <argument type="service" id="annotation_reader"/>
+            <argument type="service" id="represent.property_handler"/>
         </service>
 
         <service id="represent.generic_representation_builder" class="%represent.generic_representation_builder.class%">
@@ -39,8 +39,8 @@
         </service>
 
         <service id="represent.hal_builder" class="%represent.hal_builder.class%">
-            <argument type="service" id="annotation_reader"/>
-            <argument type="service" id="represent.link_generator"/>
+            <argument type="service" id="represent.property_context_builder"/>
+            <argument type="service" id="represent.class_context_builder"/>
             <argument type="collection">
                 <argument key="reader" type="service" id="annotation_reader"/>
                 <argument key="linkGenerator" type="service" id="represent.link_generator"/>
