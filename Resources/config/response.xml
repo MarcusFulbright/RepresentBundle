@@ -6,17 +6,20 @@
 
     <parameters>
         <parameter key="represent.pagination_factory.class">Represent\Factory\PaginationFactory</parameter>
-        <parameter key="represent.streaming_response_factory.class">Represent\Factory\ResponseFactory</parameter>
+        <parameter key="represent.streaming_response_factory.class">Represent\Factory\StreamingResponseFactory</parameter>
+        <parameter key="represent.collection_factory.class">Represent\Factory\CollectionFactory</parameter>
     </parameters>
 
     <services>
 
-        <service id="represent.pagination_factory" class="%represent.pagination_factory.class%">
-            <argument type="service" id="represent.link_generator"/>
-        </service>
-
         <service id="represent.streaming_response_factory" class="%represent.streaming_response_factory.class%">
             <argument type="service" id="represent.pagination_factory"/>
+        </service>
+
+        <service id="represent.collection_factory" class="%represent.collection_factory.class%" />
+
+        <service id="represent.pagination_factory" class="%represent.pagination_factory.class%">
+            <argument type="service" id="represent.collection_factory"/>
         </service>
 
     </services>

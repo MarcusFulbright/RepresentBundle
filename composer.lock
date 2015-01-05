@@ -358,22 +358,27 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb"
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/2f708a85bb3aab5d99dab8be435abd73e0b18acb",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Lexer\\": "lib/"
@@ -385,19 +390,16 @@
             ],
             "authors": [
                 {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
@@ -406,7 +408,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2013-01-12 18:59:04"
+            "time": "2014-09-09 13:34:57"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -519,12 +521,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarcusFulbright/represent.git",
-                "reference": "51e34de6b25162872b0a891090f5fce85814bf7b"
+                "reference": "d1a1dad3071a00b177995c5b2b1bb494ff76e80a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/51e34de6b25162872b0a891090f5fce85814bf7b",
-                "reference": "51e34de6b25162872b0a891090f5fce85814bf7b",
+                "url": "https://api.github.com/repos/MarcusFulbright/represent/zipball/d1a1dad3071a00b177995c5b2b1bb494ff76e80a",
+                "reference": "d1a1dad3071a00b177995c5b2b1bb494ff76e80a",
                 "shasum": ""
             },
             "require": {
@@ -563,7 +565,7 @@
                 "representor",
                 "rest"
             ],
-            "time": "2014-12-31 20:34:17"
+            "time": "2015-01-05 19:17:08"
         },
         {
             "name": "symfony/symfony",
@@ -859,6 +861,7 @@
         "represent/represent": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
