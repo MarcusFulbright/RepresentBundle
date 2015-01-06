@@ -22,9 +22,6 @@ class RepresentExceptionListener
 
 
         switch (true):
-            case $this->debug:
-                $message = '{"code":500,"message":"'. $exception->getMessage().'"}';
-                break;
             case $exception instanceof HttpExceptionInterface && $exception instanceof \RuntimeException:
 
                 $message = sprintf(
@@ -39,6 +36,10 @@ class RepresentExceptionListener
                     $response->headers->replace($exception->getHeaders());
                 };
                 break;
+            case $this->debug:
+                $message = '{"code":500,"message":"'. $exception->getMessage().'"}';
+                $code    = 500;
+            break;
             default:
                 $message = '{"code":500,"message":"The server has encountered an error"}';
                 $code    = 500;

@@ -11,7 +11,6 @@
     <services>
 
         <service id="represent.kernel_exception_listener" class="%represent.kernel_exception_listener.class%">
-            <argument>"%kernel.debug%"</argument>
             <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException"/>
         </service>
 
